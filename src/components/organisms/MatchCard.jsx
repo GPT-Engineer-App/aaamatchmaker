@@ -8,8 +8,8 @@ const MatchCard = ({ name, country, experience, matchScore, matchReason, potenti
       className={`border rounded-lg p-4 cursor-pointer transition-all duration-300 ${isExpanded ? 'bg-gray-50' : ''}`}
       onClick={onToggle}
     >
-      <div className="flex items-center justify-between">
-        <div className="flex items-center">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+        <div className="flex items-center mb-2 sm:mb-0">
           <Avatar className="h-12 w-12">
             <AvatarImage src={imageUrl} alt={name} />
             <AvatarFallback>{name.charAt(0)}</AvatarFallback>
@@ -21,7 +21,7 @@ const MatchCard = ({ name, country, experience, matchScore, matchReason, potenti
             <p className="text-sm text-gray-600">{experience}</p>
           </div>
         </div>
-        <div className="text-right">
+        <div className="text-left sm:text-right mt-2 sm:mt-0">
           <span className="font-bold text-lg">{matchScore}/10</span>
           <p className="text-sm text-gray-600">Match Score</p>
         </div>
@@ -36,7 +36,7 @@ const MatchCard = ({ name, country, experience, matchScore, matchReason, potenti
         transition={{ duration: 0.3 }}
       >
         <div className={`mt-4 pt-4 border-t ${isTransitioning ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <ExpandedSection title="Match Reason Summary" content={matchReason} />
             <ExpandedSection title="Potential Collaboration" content={potentialCollaboration} />
             <ExpandedSection title="Complimentary Skills" content={complimentarySkills} />
@@ -44,7 +44,7 @@ const MatchCard = ({ name, country, experience, matchScore, matchReason, potenti
             <ExpandedSection title="Communication Compatibility" content={communicationCompatibility} />
             <ExpandedSection title="Geographical Synergy" content={geographicalSynergy} />
           </div>
-          <div className="mt-4 grid grid-cols-2 gap-4">
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <ExternalLinkButton text="LinkedIn Profile" color="bg-blue-500" />
             <ExternalLinkButton text="Member Profile" color="bg-pink-500" />
           </div>

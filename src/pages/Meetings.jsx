@@ -24,7 +24,7 @@ const Meetings = () => {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="h-full bg-white rounded-lg shadow-md p-6 overflow-auto">
+    <div className="h-full bg-white rounded-lg shadow-md p-4 md:p-6 overflow-auto">
       <h1 className="text-3xl font-bold text-blue-500 mb-6">Upcoming Meetings</h1>
       {meetings && meetings.length > 0 ? (
         meetings.map((meeting) => (
@@ -71,11 +71,11 @@ const UpcomingDiscoveryCall = ({ meeting }) => {
             <p className="font-semibold">Host:</p>
             <p className="bg-gray-100 rounded-md px-2 py-1">{meeting.host_email}</p>
           </div>
-          <div className="mt-6 space-x-2">
-            <Button variant="outline" className="text-red-500 border-red-500 hover:bg-red-50" onClick={() => window.open(meeting.cancel_url, '_blank')}>
+          <div className="mt-6 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+            <Button variant="outline" className="w-full sm:w-auto text-red-500 border-red-500 hover:bg-red-50" onClick={() => window.open(meeting.cancel_url, '_blank')}>
               Cancel
             </Button>
-            <Button variant="outline" className="text-blue-500 border-blue-500 hover:bg-blue-50" onClick={() => window.open(meeting.reschedule_url, '_blank')}>
+            <Button variant="outline" className="w-full sm:w-auto text-blue-500 border-blue-500 hover:bg-blue-50" onClick={() => window.open(meeting.reschedule_url, '_blank')}>
               Reschedule
             </Button>
           </div>
