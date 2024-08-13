@@ -1,4 +1,4 @@
-import { ExternalLink, Briefcase, MapPin, Star, Zap, Users, Globe } from "lucide-react";
+import { ExternalLink, Briefcase, MapPin, Star, Zap, Users, Globe, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
