@@ -74,7 +74,7 @@ const MatchCard = ({ name, country, experience, matchScore, matchReason, potenti
           </div>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
