@@ -2,59 +2,71 @@ import React from 'react';
 import ProfileHeader from "../molecules/ProfileHeader";
 import ProfileSection from "../molecules/ProfileSection";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { MapPin, Briefcase, MessageSquare } from "lucide-react";
-
 const ProfileCard = ({ profile }) => {
   if (!profile) return null;
 
-  return (
-    <Card className="h-full overflow-auto bg-white/80 backdrop-blur-sm border-none shadow-lg">
-      <CardHeader>
-        <CardTitle className="text-3xl font-bold text-indigo-700">Your Profile</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        <ProfileHeader 
-          name={profile.name} 
-          tagline={profile.career_stage} 
-          imageUrl={profile.image_url} 
-        />
-
-        <ProfileSectionContent title="Business Goals" items={profile.business_goals} />
-        <ProfileSectionContent title="Key Skills" items={profile.key_skills} />
-        <ProfileSectionContent title="Interests" items={profile.interests} />
-        <ProfileSectionContent title="Hobbies" items={profile.hobbies} />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <InfoItem icon={<MessageSquare className="w-5 h-5" />} title="Communication" content={profile.preferred_communication} />
-          <InfoItem icon={<MapPin className="w-5 h-5" />} title="Location" content={profile.location} />
-          <InfoItem icon={<Briefcase className="w-5 h-5" />} title="Industry" content={profile.industry} />
-        </div>
-      </CardContent>
-    </Card>
-  );
-};
-
-const ProfileSectionContent = ({ title, items }) => (
-  <div>
-    <h3 className="font-semibold text-lg mb-2 text-indigo-600">{title}</h3>
-    <div className="flex flex-wrap gap-2">
+  const renderGrid = (items, gridCols = 2) => (
+    <div className={`grid grid-cols-${gridCols} gap-2`}>
       {items.map((item, index) => (
-        <Badge key={index} variant="secondary" className="bg-indigo-100 text-indigo-700">
+        <span key={index} className="bg-gray-100 rounded-md px-3 py-2 text-sm">
           {item}
-        </Badge>
+        </span>
       ))}
     </div>
-  </div>
-);
+  );
 
-const InfoItem = ({ icon, title, content }) => (
-  <div className="flex items-center space-x-2">
-    {icon}
-    <span className="font-medium text-gray-700">{title}:</span>
-    <span className="text-gray-600">{content}</span>
-  </div>
-);
+  return (
+    <div className="h-full bg-white rounded-lg shadow-md p-4 md:p-6 overflow-auto">
+      <h1 className="text-3xl font-bold text-purple-600 mb-6">Your Profile</h1>
+      
+      <ProfileHeader 
+        name={profile.name} 
+        tagline={profile.career_stage} 
+        imageUrl={profile.image_url} 
+      />
+
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        <ProfileSection title="Business Goals">
+          {profile.business_goals.map((goal, index) => (
+            <React.Fragment key={index}>{goal}</React.Fragment>
+          ))}
+        </ProfileSection>
+        <ProfileSection title="Key Skills">
+          {profile.key_skills.map((skill, index) => (
+            <React.Fragment key={index}>{skill}</React.Fragment>
+          ))}
+        </ProfileSection>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        <ProfileSection title="Interests">
+          {profile.interests.map((interest, index) => (
+            <React.Fragment key={index}>{interest}</React.Fragment>
+          ))}
+        </ProfileSection>
+        <ProfileSection title="Hobbies">
+          {profile.hobbies.map((hobby, index) => (
+            <React.Fragment key={index}>{hobby}</React.Fragment>
+          ))}
+        </ProfileSection>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <ProfileSection title="Communication Preferences">
+          {profile.preferred_communication}
+        </ProfileSection>
+        <ProfileSection title="Location">
+          {profile.location}
+        </ProfileSection>
+      </div>
+
+      <div className="mt-4">
+        <ProfileSection title="Industry">
+          {profile.industry}
+        </ProfileSection>
+      </div>
+    </div>
+  );
+};
 
 export default ProfileCard;

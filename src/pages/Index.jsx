@@ -3,8 +3,6 @@ import { useMatchmakerProfile, useUserMatchesWithDetailsForProfile, useRealtimeD
 import React from 'react';
 import { Skeleton } from "@/components/ui/skeleton";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 const Index = () => {
   const profileId = "7f4c2fb8-d3e6-4671-b45e-f2ffb76a1d12";
   const { data: profile, isLoading: profileLoading, error: profileError } = useMatchmakerProfile(profileId);
@@ -13,22 +11,19 @@ const Index = () => {
 
   React.useEffect(() => {
     if (realtimeData && (realtimeData.eventType === 'INSERT' || realtimeData.eventType === 'UPDATE')) {
+      // Refetch the data when we receive a real-time update
       refetch();
     }
   }, [realtimeData, refetch]);
 
   if (profileLoading || matchesLoading) {
     return (
-      <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
-        <CardHeader>
-          <CardTitle><Skeleton className="h-8 w-3/4" /></CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <Skeleton className="h-48 w-full" />
-          <Skeleton className="h-48 w-full" />
-          <Skeleton className="h-48 w-full" />
-        </CardContent>
-      </Card>
+      <div className="space-y-4">
+        <Skeleton className="h-12 w-3/4" />
+        <Skeleton className="h-48 w-full" />
+        <Skeleton className="h-48 w-full" />
+        <Skeleton className="h-48 w-full" />
+      </div>
     );
   }
   if (profileError) return <div>Error loading profile: {profileError.message}</div>;
@@ -38,7 +33,7 @@ const Index = () => {
 
   const processedMatches = userMatches.map(match => ({
     name: match.matched_profile.name,
-    country: "🌍",
+    country: "🌍", // You might want to add a country field to your matches
     experience: match.experience_level || "Not specified",
     matchScore: match.matching_score,
     matchReason: match.explanation,
@@ -53,14 +48,10 @@ const Index = () => {
   }));
 
   return (
-    <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
-      <CardHeader>
-        <CardTitle className="text-3xl font-bold text-indigo-700">Top Matches</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <MatchList matches={processedMatches} />
-      </CardContent>
-    </Card>
+    <div className="bg-white rounded-lg shadow-md p-4 md:p-6">
+      <h1 className="text-3xl font-bold text-blue-500 mb-6">Top Matches</h1>
+      <MatchList matches={processedMatches} />
+    </div>
   );
 };
 
