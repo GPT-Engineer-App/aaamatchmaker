@@ -21,10 +21,10 @@ const ProfileCard = ({ profile }) => {
           imageUrl={profile.image_url} 
         />
 
-        <ProfileSection title="Business Goals" items={profile.business_goals} />
-        <ProfileSection title="Key Skills" items={profile.key_skills} />
-        <ProfileSection title="Interests" items={profile.interests} />
-        <ProfileSection title="Hobbies" items={profile.hobbies} />
+        <ProfileSectionContent title="Business Goals" items={profile.business_goals} />
+        <ProfileSectionContent title="Key Skills" items={profile.key_skills} />
+        <ProfileSectionContent title="Interests" items={profile.interests} />
+        <ProfileSectionContent title="Hobbies" items={profile.hobbies} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <InfoItem icon={<MessageSquare className="w-5 h-5" />} title="Communication" content={profile.preferred_communication} />
@@ -36,7 +36,7 @@ const ProfileCard = ({ profile }) => {
   );
 };
 
-const ProfileSection = ({ title, items }) => (
+const ProfileSectionContent = ({ title, items }) => (
   <div>
     <h3 className="font-semibold text-lg mb-2 text-indigo-600">{title}</h3>
     <div className="flex flex-wrap gap-2">
