@@ -3,6 +3,19 @@ import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const MatchCard = ({ name, country, experience, matchScore, matchReason, potentialCollaboration, complimentarySkills, sharedInterests, communicationCompatibility, geographicalSynergy, isExpanded, isTransitioning, onToggle, imageUrl }) => {
+  const ExpandedSection = ({ title, content }) => (
+    <div className="border p-2 rounded">
+      <h4 className="font-semibold mb-1">{title}</h4>
+      <p className="text-sm">{content}</p>
+    </div>
+  );
+
+  const ExternalLinkButton = ({ text, color }) => (
+    <button className={`${color} text-white px-4 py-2 rounded flex items-center justify-center w-full`}>
+      {text} <ExternalLink className="ml-2 h-4 w-4" />
+    </button>
+  );
+
   return (
     <div 
       className={`border rounded-lg p-4 cursor-pointer transition-all duration-300 ${isExpanded ? 'bg-gray-50' : ''}`}
@@ -53,18 +66,5 @@ const MatchCard = ({ name, country, experience, matchScore, matchReason, potenti
     </div>
   );
 };
-
-const ExpandedSection = ({ title, content }) => (
-  <div className="border p-2 rounded">
-    <h4 className="font-semibold mb-1">{title}</h4>
-    <p className="text-sm">{content}</p>
-  </div>
-);
-
-const ExternalLinkButton = ({ text, color }) => (
-  <button className={`${color} text-white px-4 py-2 rounded flex items-center justify-center w-full`}>
-    {text} <ExternalLink className="ml-2 h-4 w-4" />
-  </button>
-);
 
 export default MatchCard;
