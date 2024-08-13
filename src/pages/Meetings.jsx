@@ -5,39 +5,47 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
 import { useDiscoveryMeetingsForProfile } from "../integrations/supabase";
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 const Meetings = () => {
   const profileId = "7f4c2fb8-d3e6-4671-b45e-f2ffb76a1d12";
   const { data: meetings, isLoading, error } = useDiscoveryMeetingsForProfile(profileId);
 
   if (isLoading) {
     return (
-      <div className="h-full bg-white rounded-lg shadow-md p-6 overflow-auto">
-        <Skeleton className="h-12 w-3/4 mb-6" />
-        <div className="space-y-4">
+      <Card className="h-full bg-white/80 backdrop-blur-sm border-none shadow-lg">
+        <CardHeader>
+          <CardTitle><Skeleton className="h-8 w-3/4" /></CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
           <Skeleton className="h-48 w-full" />
           <Skeleton className="h-48 w-full" />
           <Skeleton className="h-48 w-full" />
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     );
   }
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="h-full bg-white rounded-lg shadow-md p-4 md:p-6 overflow-auto">
-      <h1 className="text-3xl font-bold text-blue-500 mb-6">Upcoming Meetings</h1>
-      {meetings && meetings.length > 0 ? (
-        meetings.map((meeting) => (
-          <UpcomingDiscoveryCall key={meeting.meeting_id} meeting={meeting} />
-        ))
-      ) : (
-        <Alert variant="warning" className="mb-6 bg-yellow-100 border-yellow-400">
-          <AlertDescription className="text-yellow-700">
-            No upcoming discovery calls. Matches will be generated after the first Discovery Call.
-          </AlertDescription>
-        </Alert>
-      )}
-    </div>
+    <Card className="h-full bg-white/80 backdrop-blur-sm border-none shadow-lg overflow-auto">
+      <CardHeader>
+        <CardTitle className="text-3xl font-bold text-indigo-700">Upcoming Meetings</CardTitle>
+      </CardHeader>
+      <CardContent>
+        {meetings && meetings.length > 0 ? (
+          meetings.map((meeting) => (
+            <UpcomingDiscoveryCall key={meeting.meeting_id} meeting={meeting} />
+          ))
+        ) : (
+          <Alert variant="warning" className="mb-6 bg-yellow-100 border-yellow-400">
+            <AlertDescription className="text-yellow-700">
+              No upcoming discovery calls. Matches will be generated after the first Discovery Call.
+            </AlertDescription>
+          </Alert>
+        )}
+      </CardContent>
+    </Card>
   );
 };
 
