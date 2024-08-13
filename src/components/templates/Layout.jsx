@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
   if (!profile) return <div>No profile found</div>;
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-4 md:p-8">
       <div className="flex flex-col md:flex-row h-full">
         <div className="w-full md:w-[40%] md:mr-4 mb-4 md:mb-0">
           <ProfileCard profile={profile} />

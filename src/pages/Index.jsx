@@ -2,6 +2,8 @@ import MatchList from "../components/organisms/MatchList";
 import { useMatchmakerProfile, useUserMatchesWithDetailsForProfile, useRealtimeData } from "../integrations/supabase";
 import React from 'react';
 import { Skeleton } from "@/components/ui/skeleton";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 const Index = () => {
   const profileId = "7f4c2fb8-d3e6-4671-b45e-f2ffb76a1d12";
@@ -48,10 +50,18 @@ const Index = () => {
   }));
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 md:p-6">
-      <h1 className="text-3xl font-bold text-blue-500 mb-6">Top Matches</h1>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg shadow-lg p-6 md:p-8"
+    >
+      <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-8 flex items-center">
+        <Sparkles className="mr-2 text-yellow-400" />
+        Top Matches
+      </h1>
       <MatchList matches={processedMatches} />
-    </div>
+    </motion.div>
   );
 };
 
