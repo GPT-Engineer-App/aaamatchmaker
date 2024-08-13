@@ -5,8 +5,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
 import { useDiscoveryMeetingsForProfile } from "../integrations/supabase";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 const Meetings = () => {
   const profileId = "7f4c2fb8-d3e6-4671-b45e-f2ffb76a1d12";
   const { data: meetings, isLoading, error } = useDiscoveryMeetingsForProfile(profileId);
