@@ -6,14 +6,12 @@ const MatchList = ({ matches }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleExpand = (index) => {
+    if (expandedMatchIndex === index) return;
+    
     setIsTransitioning(true);
-    setExpandedMatchIndex((prevIndex) => {
-      if (prevIndex === index) {
-        return null; // Collapse if already expanded
-      }
-      return index; // Expand the clicked match
-    });
+    setExpandedMatchIndex(null);
     setTimeout(() => {
+      setExpandedMatchIndex(index);
       setIsTransitioning(false);
     }, 300); // Match this with the CSS transition duration
   };

@@ -1,6 +1,6 @@
+import { ExternalLink, Briefcase, MapPin, Star, Zap, Users, Globe, Heart, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { ChevronDown, ChevronUp, ExternalLink, Briefcase, MapPin, Star, Zap, Users, Globe, Heart, MessageCircle } from "lucide-react";
 
 const MatchCard = ({ name, country, experience, matchScore, matchReason, potentialCollaboration, complimentarySkills, sharedInterests, communicationCompatibility, geographicalSynergy, isExpanded, isTransitioning, onToggle, imageUrl }) => {
   const ExpandedSection = ({ title, content, icon }) => (
@@ -26,33 +26,6 @@ const MatchCard = ({ name, country, experience, matchScore, matchReason, potenti
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center">
-          <Avatar className="h-16 w-16 border-2 border-blue-300">
-            <AvatarImage src={imageUrl} alt={name} />
-            <AvatarFallback className="bg-gradient-to-br from-blue-400 to-purple-400 text-white">
-              {name.charAt(0)}
-            </AvatarFallback>
-          </Avatar>
-          <div className="ml-4">
-            <h3 className="text-xl font-semibold text-gray-800">
-              {name} <span className="ml-2 text-gray-500">{country}</span>
-            </h3>
-            <p className="text-sm text-gray-600 flex items-center">
-              <Briefcase className="w-4 h-4 mr-1" /> {experience}
-            </p>
-          </div>
-        </div>
-        <div className="text-right">
-          <span className="font-bold text-2xl text-blue-600">{matchScore}/10</span>
-          <p className="text-sm text-gray-600 flex items-center justify-end">
-            <Star className="w-4 h-4 mr-1 text-yellow-400" /> Match Score
-          </p>
-        </div>
-      </div>
-      <div className="flex justify-end">
-        {isExpanded ? <ChevronUp className="w-6 h-6 text-gray-500" /> : <ChevronDown className="w-6 h-6 text-gray-500" />}
-      </div>
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
         <div className="flex items-center mb-2 sm:mb-0">
           <Avatar className="h-16 w-16 border-2 border-blue-300">
