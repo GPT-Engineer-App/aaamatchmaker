@@ -56,7 +56,7 @@ const Index = () => {
       transition={{ duration: 0.5 }}
       className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg shadow-lg p-6 md:p-8"
     >
-      <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-8 flex items-center">
+      <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-8 flex items-center font-poppins">
         <Sparkles className="mr-2 text-yellow-400" />
         Top Matches
       </h1>
