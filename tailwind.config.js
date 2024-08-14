@@ -20,6 +20,7 @@ module.exports = {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
         quicksand: ['Quicksand', 'sans-serif'],
+        raleway: ['Raleway', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

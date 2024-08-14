@@ -11,6 +11,8 @@ import "@fontsource/raleway/600.css";
 import "@fontsource/raleway/700.css";
 import "@fontsource/quicksand/400.css";
 import "@fontsource/quicksand/700.css";
+import "@fontsource/quicksand/400.css";
+import "@fontsource/quicksand/700.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

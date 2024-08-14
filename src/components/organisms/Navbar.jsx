@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <span className="text-xl font-bold text-gray-800">ConnectPro</span>
+              <span className="text-xl font-bold text-gray-800 font-quicksand">AI Automation Collaboration</span>
             </div>
             <div className="ml-10 flex items-center space-x-4">
               <NavLink to="/" currentPath={location.pathname}>
