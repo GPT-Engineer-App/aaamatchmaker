@@ -22,7 +22,7 @@ const ProfileCard = ({ profile }) => {
       <ProfileHeader 
         name={profile.name} 
         tagline={profile.career_stage} 
-        imageUrl={profile.image_url} 
+        imageUrl={profile.image_url || "/placeholder.svg"} 
       />
 
       <div className="grid grid-cols-2 gap-4 mb-4">

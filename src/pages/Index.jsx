@@ -45,7 +45,7 @@ const Index = () => {
     communicationCompatibility: match.communication_compatibility,
     geographicalSynergy: match.geographical_synergy,
     industry: match.matched_profile.industry,
-    imageUrl: match.matched_profile.image_url,
+    imageUrl: match.aaa_user?.image_url || "/placeholder.svg",
     keySkills: match.matched_profile.key_skills ? match.matched_profile.key_skills.join(", ") : "Not specified",
   }));
 

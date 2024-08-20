@@ -376,7 +376,8 @@ export const useUserMatchesWithDetailsForProfile = (profileId) => useQuery({
         .from('user_matches')
         .select(`
             *,
-            matched_profile:matchmaker_profiles!matched_profile_id (*)
+            matched_profile:matchmaker_profiles!matched_profile_id (*),
+            aaa_user:aaa_users!matched_profile_id (image_url)
         `)
         .eq('profile_id', profileId)
     )
