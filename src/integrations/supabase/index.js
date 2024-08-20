@@ -208,7 +208,24 @@ export const useAAAUsers = () => useQuery({
 
 export const useAAAUser = (userId) => useQuery({
     queryKey: ['aaa_users', userId],
-    queryFn: () => fromSupabase(supabase.from('aaa_users').select('*').eq('user_id', userId).single())
+    queryFn: async () => {
+        const { data, error } = await supabase
+            .from('aaa_users')
+            .select('*')
+            .eq('user_id', userId)
+            .single();
+        
+        if (error) {
+            if (error.code === 'PGRST116') {
+                // No rows returned
+                return null;
+            }
+            throw error;
+        }
+        
+        return data;
+    },
+    retry: false,
 });
 
 export const useAddAAAUser = () => {
