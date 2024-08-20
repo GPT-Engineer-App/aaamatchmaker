@@ -1,5 +1,5 @@
 import ProfileCard from "../organisms/ProfileCard";
-import { useMatchmakerProfile } from "../../integrations/supabase";
+import { useMatchmakerProfile, useAAAUser } from "../../integrations/supabase";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const Layout = ({ children }) => {
