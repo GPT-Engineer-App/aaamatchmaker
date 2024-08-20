@@ -24,7 +24,7 @@ const Meetings = () => {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="h-full bg-white rounded-lg shadow-md p-4 md:p-6 overflow-auto">
+    <div className="h-full bg-white rounded-lg shadow-md p-4 overflow-auto">
       <h1 className="text-3xl font-bold text-blue-500 mb-6 font-poppins">Upcoming Meetings</h1>
       {meetings && meetings.length > 0 ? (
         meetings.map((meeting) => (

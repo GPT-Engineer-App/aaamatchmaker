@@ -6,19 +6,17 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex">
-            <div className="flex-shrink-0 flex items-center">
-              <span className="text-xl font-bold text-gray-800 font-quicksand">AI Automation Collaboration</span>
-            </div>
-            <div className="ml-10 flex items-center space-x-4">
-              <NavLink to="/" currentPath={location.pathname}>
-                Meetings
-              </NavLink>
-              <NavLink to="/matches" currentPath={location.pathname}>
-                Matches
-              </NavLink>
-            </div>
+        <div className="flex flex-col sm:flex-row justify-between items-center py-3 sm:h-16">
+          <div className="flex-shrink-0 mb-2 sm:mb-0">
+            <span className="text-xl font-bold text-gray-800 font-quicksand">AI Automation Collaboration</span>
+          </div>
+          <div className="flex items-center space-x-4">
+            <NavLink to="/" currentPath={location.pathname}>
+              Meetings
+            </NavLink>
+            <NavLink to="/matches" currentPath={location.pathname}>
+              Matches
+            </NavLink>
           </div>
         </div>
       </div>

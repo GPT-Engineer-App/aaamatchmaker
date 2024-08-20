@@ -8,12 +8,12 @@ const Layout = ({ children }) => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-100 p-8">
-        <div className="flex h-full">
-          <div className="w-[40%] mr-4">
+      <div className="min-h-screen bg-gray-100 p-4">
+        <div className="flex flex-col lg:flex-row gap-4">
+          <div className="w-full lg:w-[40%]">
             <Skeleton className="h-[600px] w-full" />
           </div>
-          <div className="w-[60%]">
+          <div className="w-full lg:w-[60%]">
             <Skeleton className="h-[600px] w-full" />
           </div>
         </div>
@@ -24,12 +24,12 @@ const Layout = ({ children }) => {
   if (!profile) return <div>No profile found</div>;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-4 md:p-8">
-      <div className="flex flex-col md:flex-row h-full">
-        <div className="w-full md:w-[40%] md:mr-4 mb-4 md:mb-0">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-4">
+      <div className="flex flex-col lg:flex-row gap-4">
+        <div className="w-full lg:w-[40%] mb-4 lg:mb-0">
           <ProfileCard profile={profile} />
         </div>
-        <div className="w-full md:w-[60%]">{children}</div>
+        <div className="w-full lg:w-[60%]">{children}</div>
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ const MatchCard = ({ name, country, experience, matchScore, matchReason, potenti
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between">
         <div className="flex items-center mb-2 sm:mb-0">
           <Avatar className="h-16 w-16 border-2 border-blue-300">
             <AvatarImage src={imageUrl} alt={name} />
@@ -43,7 +43,7 @@ const MatchCard = ({ name, country, experience, matchScore, matchReason, potenti
             </p>
           </div>
         </div>
-        <div className="text-left sm:text-right mt-2 sm:mt-0">
+        <div className="text-left lg:text-right mt-2 lg:mt-0">
           <span className="font-bold text-2xl text-blue-600">{matchScore}/10</span>
           <p className="text-sm text-gray-600 flex items-center justify-end">
             <Star className="w-4 h-4 mr-1 text-yellow-400" /> Match Score
@@ -60,7 +60,7 @@ const MatchCard = ({ name, country, experience, matchScore, matchReason, potenti
         transition={{ duration: 0.3 }}
       >
         <div className={`mt-4 pt-4 border-t ${isTransitioning ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <ExpandedSection title="Match Reason Summary" content={matchReason} icon={<Zap className="w-5 h-5 text-yellow-500" />} />
             <ExpandedSection title="Potential Collaboration" content={potentialCollaboration} icon={<Users className="w-5 h-5 text-green-500" />} />
             <ExpandedSection title="Complimentary Skills" content={complimentarySkills} icon={<Star className="w-5 h-5 text-purple-500" />} />
@@ -68,7 +68,7 @@ const MatchCard = ({ name, country, experience, matchScore, matchReason, potenti
             <ExpandedSection title="Communication Compatibility" content={communicationCompatibility} icon={<MessageCircle className="w-5 h-5 text-blue-500" />} />
             <ExpandedSection title="Geographical Synergy" content={geographicalSynergy} icon={<Globe className="w-5 h-5 text-indigo-500" />} />
           </div>
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
             <ExternalLinkButton text="LinkedIn Profile" color="bg-blue-500" />
             <ExternalLinkButton text="Member Profile" color="bg-pink-500" />
           </div>
