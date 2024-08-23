@@ -7,6 +7,8 @@ import Layout from "./components/templates/Layout";
 import Index from "./pages/Index";
 import Meetings from "./pages/Meetings";
 import ThankYou from "./pages/ThankYou";
+import ThankYou from "./pages/ThankYou";
+import ThankYou from "./pages/ThankYou";
 
 const queryClient = new QueryClient();
 
