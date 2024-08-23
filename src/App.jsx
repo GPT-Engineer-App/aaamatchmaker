@@ -6,6 +6,7 @@ import Navbar from "./components/organisms/Navbar";
 import Layout from "./components/templates/Layout";
 import Index from "./pages/Index";
 import Meetings from "./pages/Meetings";
+import ThankYou from "./pages/ThankYou";
 
 const queryClient = new QueryClient();
 
@@ -14,13 +15,11 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <BrowserRouter>
-        <Navbar />
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Meetings />} />
-            <Route path="/matches" element={<Index />} />
-          </Routes>
-        </Layout>
+        <Routes>
+          <Route path="/" element={<><Navbar /><Layout><Meetings /></Layout></>} />
+          <Route path="/matches" element={<><Navbar /><Layout><Index /></Layout></>} />
+          <Route path="/thank_you" element={<ThankYou />} />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
